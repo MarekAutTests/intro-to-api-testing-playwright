@@ -1,4 +1,4 @@
-<b>Mocked Order Operations REST APIs for managing test orders</b></br>
+<b>Mocked Order Operations <i> REST APIs for managing test orders</i></b></br>
 <i>/test-orders/{id}</i></br>
 <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
         <colgroup><col class="col0">
