@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { LoginDto } from './dto/LoginDto'
+import { LoginDto } from './dto/login-dto'
 
 const serviceURL = 'https://backend.tallinn-learning.ee/'
 const loginPath = 'login/student'
