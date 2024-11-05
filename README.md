@@ -1,77 +1,84 @@
+<!---
 <b>Mocked Order Operations <i> REST APIs for managing test orders</i></b></br>
 <i>/test-orders/{id}</i></br>
-<table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
-        <colgroup><col class="col0">
-        <col class="col1">
-        <col class="col2">
-        <col class="col3">
-        </colgroup><tbody>
-          <tr class="row0">
-            <td class="column0 style0 s">PUT tests</td>
-            <td class="column1">&nbsp;</td>
-            <td class="column2">&nbsp;</td>
-            <td class="column3">&nbsp;</td>
+<table>
+          <tr>
+            <th>PUT tests</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
           </tr>
-          <tr class="row1">
-            <td class="column0 style0 s">#</td>
-            <td class="column1 style0 s">Сценарий</td>
-            <td class="column2 style0 s">Тест данные</td>
-            <td class="column3 style0 s">Ожидаемый результат</td>
+          <tr>
+            <th>#</th>
+            <th>Сценарий</th>
+            <th>Тест данные</th>
+            <th>Ожидаемый результат</th>
           </tr>
-          <tr class="row2">
-            <td class="column0 style0 n">1</td>
-            <td class="column1 style0 s">Проверка обновления заказа при корректном orderId и api_key</td>
-            <td class="column2 style1 s">orderId = { 1..10}<br>
-api_key = '1234567890123456'</td>
-            <td class="column3 style0 s">200 (Status: OK)</td>
+          <tr>
+            <td>1</td>
+            <td>Проверка обновления заказа при корректном orderId и api_key</td>
+            <td>orderId = { 1..10}<br> api_key = '1234567890123456'</td>
+            <td>200 (Status: OK)</td>
           </tr>
-          <tr class="row3">
-            <td class="column0 style0 n">2</td>
-            <td class="column1 style1 s">Проверка получения кода ответа 400 при<br>
-некорректном orderId и api_key</td>
-            <td class="column2 style1 s">orderId = менее 1, более 10, отсутствует, символ<br>
-api_key = неправильный</td>
-            <td class="column3 style0 s">400 (Status: Bad request)</td>
+          <tr>
+            <td>2</td>
+            <td>Проверка получения кода ответа 400 при </br> некорректном orderId и api_key</td>
+            <td>orderId = менее 1, более 10, отсутствует, символ </br> api_key = неправильный</td>
+            <td>400 (Status: Bad request)</td>
           </tr>
-          <tr class="row4">
-            <td class="column0 style0 s">DELETE tests</td>
-            <td class="column1">&nbsp;</td>
-            <td class="column2">&nbsp;</td>
-            <td class="column3">&nbsp;</td>
+          <tr>
+            <th>DELETE tests</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
           </tr>
           <tr class="row5">
-            <td class="column0 style0 n">1</td>
-            <td class="column1 style0 s">Проверка обновления заказа при корректном orderId и api_key</td>
-            <td class="column2 style1 s">orderId = { 1..10}<br>
-api_key = '1234567890123456'</td>
-            <td class="column3 style0 s">200 (Status: OK)</td>
+            <td>1</td>
+            <td>Проверка обновления заказа при корректном orderId и api_key</td>
+            <td>orderId = { 1..10}<br> api_key = '1234567890123456'</td>
+            <td>200 (Status: OK)</td>
           </tr>
-          <tr class="row6">
-            <td class="column0 style0 n">2</td>
-            <td class="column1 style1 s">Проверка получения кода ответа 400 при<br>
-некорректном orderId и api_key</td>
-            <td class="column2 style1 s">orderId = менее 1, более 10, отсутствует, символ<br>
-api_key = неправильный</td>
-            <td class="column3 style0 s">400 (Status: Bad request)</td>
+          <tr>
+            <td>2</td>
+            <td>Проверка получения кода ответа 400 при<br> некорректном orderId и api_key</td>
+            <td>orderId = менее 1, более 10, отсутствует, символ<br> api_key = неправильный</td>
+            <td>400 (Status: Bad request)</td>
           </tr>
-          <tr class="row7">
-            <td class="column0 style0 s">GET tests</td>
-            <td class="column1">&nbsp;</td>
-            <td class="column2">&nbsp;</td>
-            <td class="column3">&nbsp;</td>
+          <tr>
+            <th>GET tests</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
           </tr>
-          <tr class="row8">
-            <td class="column0 style0 n">1</td>
-            <td class="column1 style0 s">Проверка получения данных заказа при корректном orderId</td>
-            <td class="column2 style1 s">orderId = { 1..10}</td>
-            <td class="column3 style0 s">200 (Status: OK)</td>
+          <tr>
+            <td>1</td>
+            <td>Проверка получения данных заказа при корректном orderId</td>
+            <td>orderId = { 1..10}</td>
+            <td>200 (Status: OK)</td>
           </tr>
-          <tr class="row9">
-            <td class="column0 style0 n">2</td>
-            <td class="column1 style1 s">Проверка получения кода ответа 400 при<br>
-некорректном orderId</td>
-            <td class="column2 style1 s">orderId = менее 1, более 10, отсутствует, символ</td>
-            <td class="column3 style0 s">400 (Status: Bad request)</td>
+          <tr>
+            <td>2</td>
+            <td>Проверка получения кода ответа 400 при<br> некорректном orderId</td>
+            <td>orderId = менее 1, более 10, отсутствует, символ</td>
+            <td>400 (Status: Bad request)</td>
           </tr>
         </tbody>
     </table>
+!--->
+
+<b>Mocked Order Operations <i> REST APIs for managing test orders</i></b></br>
+<i>/test-orders/{id}</i></br>
+
+
+|#| Сценарий | Тест данные | Ожидаемый результат |
+|---|---|---|---|
+|<h4><i>PUT tests</i></h4>||||
+|1| Проверка обновления заказа при корректном orderId и api_key | orderId = { 1..10} </br>  api_key = '1234567890123456' | 200 (Status: OK) |
+|2| Проверка получения кода ответа 400 при некорректном orderId и api_key | orderId = менее 1, более 10, отсутствует, символ </br> api_key = неправильный | 400 (Status: Bad request) |
+|<h4><i>DELETE tests</i></h4>||||
+|1| Проверка обновления заказа при корректном orderId и api_key | orderId = { 1..10} </br>  api_key = '1234567890123456' | 200 (Status: OK) |
+|2| Проверка получения кода ответа 400 при некорректном orderId и api_key | orderId = менее 1, более 10, отсутствует, символ </br> api_key = неправильный | 400 (Status: Bad request) |
+|<h4><i>GET tests</i></h4>||||
+|1| Проверка обновления заказа при корректном orderId и api_key | orderId = { 1..10} | 200 (Status: OK) |
+|2| Проверка получения кода ответа 400 при некорректном orderId и api_key | orderId = менее 1, более 10, отсутствует, символ | 400 (Status: Bad request) |
+
