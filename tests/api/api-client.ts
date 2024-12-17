@@ -19,12 +19,12 @@ export class ApiClient {
 
   public static async getInstance(request: APIRequestContext): Promise<ApiClient> {
     if (!ApiClient.instance) {
-      ApiClient.instance = new ApiClient(request);
+      ApiClient.instance = new ApiClient(request)
       if (this.instance) {
-        await this.instance.requestJwt();
+        await this.instance.requestJwt()
       }
     }
-    return ApiClient.instance;
+    return ApiClient.instance
   }
 
   private async requestJwt(): Promise<void> {
