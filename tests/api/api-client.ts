@@ -26,6 +26,7 @@ export class ApiClient {
   }
 
   private async requestJwt(): Promise<void> {
+    console.log('>>jwt: "' + this.jwt + '"')
     console.log('Requesting JWT...')
     const authResponse = await this.request.post(`${serviceURL}${loginPath}`, {
       data: LoginDto.createLoginWithCorrectData(),
@@ -59,6 +60,7 @@ export class ApiClient {
   }
 
   async getOrderById(orderId: number): Promise<void> {
+    console.log('>>jwt: "' + this.jwt + '"')
     console.log(`Getting order by ID: ${orderId}...`)
     const response = await this.request.get(`${serviceURL}${orderPath}/${orderId}`, {
       headers: {
@@ -75,6 +77,7 @@ export class ApiClient {
   }
 
   async deleteOrderById(orderId: number): Promise<void> {
+    console.log('>>jwt: "' + this.jwt + '"')
     console.log(`Deleting order with ID ${orderId}...`)
     const response = await this.request.delete(`${serviceURL}${orderPath}/${orderId}`, {
       headers: {
