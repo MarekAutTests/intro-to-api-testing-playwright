@@ -1,6 +1,5 @@
 import { test } from '@playwright/test'
 import { ApiClient } from './api/api-client'
-import { describe } from 'node:test'
 
 let orderId: number
 
