@@ -9,7 +9,7 @@ const loginPath = 'login/student'
 const orderPath = 'orders'
 
 export class ApiClient {
-  static instance: ApiClient | null = null
+  static instance: ApiClient
   private request: APIRequestContext
   private jwt: string = ''
 
@@ -56,8 +56,13 @@ export class ApiClient {
     const responseBody = await response.json()
     console.log('Order created: ')
     console.log(responseBody)
+    console.log(responseBody.id)
 
-    return responseBody.id
+    if (responseBody.id === '' || responseBody.id != null) {
+      return responseBody.id
+    } else {
+      throw new Error(`New order wasn't create, orderId absent ${responseBody.id}`)
+    }
   }
 
   async getOrderById(orderId: number): Promise<void> {
