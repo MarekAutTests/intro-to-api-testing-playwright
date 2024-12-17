@@ -52,7 +52,7 @@ export class LoanCalcDto {
       1000, // income
       0, // debt
       25, //age
-      Boolean(this.randomNumberInRange(0, 1)), //employed
+      true, //employed
       this.randomNumberInRange(500, 1000), //loanAmount
       this.mediumRiskPeriods[Math.floor(Math.random() * this.mediumRiskPeriods.length)], //loanPeriod
     )
