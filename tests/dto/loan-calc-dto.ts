@@ -147,7 +147,6 @@ export class LoanCalcDto {
   }
 
   static possibleLoanPeriods: number[] = [3, 6, 9, 12, 18, 24, 30, 36]
-  static lowRiskPeriods: number[] = [12, 18, 24, 30, 36]
   static mediumRiskPeriods: number[] = [6, 9, 12]
   static highRiskPeriods: number[] = [3, 6]
 }

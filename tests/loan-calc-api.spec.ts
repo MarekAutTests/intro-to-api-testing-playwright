@@ -3,7 +3,6 @@ import { StatusCodes } from 'http-status-codes'
 import { LoanCalcDto } from './dto/loan-calc-dto'
 
 const url = 'https://backend.tallinn-learning.ee/api/loan-calc/decision'
-const possibleLoanPeriods: number[] = [3, 6, 9, 12, 18, 24, 30, 36]
 const lowRiskPeriods: number[] = [12, 18, 24, 30, 36]
 const mediumRiskPeriods: number[] = [6, 9, 12]
 const highRiskPeriods: number[] = [3, 6]
