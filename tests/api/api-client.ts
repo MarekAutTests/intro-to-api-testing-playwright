@@ -9,7 +9,7 @@ const loginPath = 'login/student'
 const orderPath = 'orders'
 
 export class ApiClient {
-  static instance: ApiClient
+  static instance: ApiClient | null = null
   private request: APIRequestContext
   private jwt: string = ''
 
@@ -19,10 +19,12 @@ export class ApiClient {
 
   public static async getInstance(request: APIRequestContext): Promise<ApiClient> {
     if (!ApiClient.instance) {
-      ApiClient.instance = new ApiClient(request)
-      await this.instance.requestJwt()
+      ApiClient.instance = new ApiClient(request);
+      if (this.instance) {
+        await this.instance.requestJwt();
+      }
     }
-    return ApiClient.instance
+    return ApiClient.instance;
   }
 
   private async requestJwt(): Promise<void> {
@@ -43,7 +45,7 @@ export class ApiClient {
   }
 
   async createOrderAndReturnOrderId(): Promise<number> {
-    console.log('Creating order...')
+    console.log('Creating new order...')
     const response = await this.request.post(`${serviceURL}${orderPath}`, {
       data: OrderDto.createOrderWithRandomData(),
       headers: {
@@ -61,7 +63,7 @@ export class ApiClient {
   }
 
   async getOrderById(orderId: number): Promise<void> {
-    console.log(`Fetching order with ID ${orderId}...`)
+    console.log(`Getting order by ID: ${orderId}...`)
     const response = await this.request.get(`${serviceURL}${orderPath}/${orderId}`, {
       headers: {
         Authorization: `Bearer ${this.jwt}`,
