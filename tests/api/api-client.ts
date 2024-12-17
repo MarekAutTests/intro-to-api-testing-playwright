@@ -9,15 +9,17 @@ const loginPath = 'login/student'
 const orderPath = 'orders'
 
 export class ApiClient {
-  static instance: ApiClient
-  private request: APIRequestContext
-  private jwt: string = ''
+  //static instance: ApiClient
+  //private request: APIRequestContext
+  private jwt: string | null = null
 
-  private constructor(request: APIRequestContext) {
+  /*private constructor(request: APIRequestContext) {
     this.request = request
-  }
+  }*/
 
-  public static async getInstance(request: APIRequestContext): Promise<ApiClient> {
+  constructor(private request: APIRequestContext) {}
+
+  /*public static async getInstance(request: APIRequestContext): Promise<ApiClient> {
     if (!ApiClient.instance) {
       ApiClient.instance = new ApiClient(request)
       await ApiClient.instance.requestJwt()
@@ -39,10 +41,20 @@ export class ApiClient {
 
     this.jwt = await authResponse.text()
     console.log('JWT received:', this.jwt)
+  }*/
+
+  async login(): Promise<string> {
+    const loginData = LoginDto.createLoginWithCorrectData()
+    const response = await this.request.post(`${serviceURL}${loginPath}`, {
+      data: loginData,
+    })
+    const jwt = await response.text()
+    this.jwt = jwt
+    return jwt
   }
 
   async createOrderAndReturnOrderId(): Promise<number> {
-    console.log('>>jwt: "' + this.jwt + '"')
+    if (!this.jwt) throw new Error('Test cannot continue, user is not logged in...')
     console.log('Creating new order...')
     const response = await this.request.post(`${serviceURL}${orderPath}`, {
       data: OrderDto.createOrderWithRandomData(),
@@ -66,7 +78,7 @@ export class ApiClient {
   }
 
   async getOrderById(orderId: number): Promise<void> {
-    console.log('>>jwt: "' + this.jwt + '"')
+    if (!this.jwt) throw new Error('Test cannot continue, user is not logged in...')
     console.log(`Getting order by ID: ${orderId}...`)
     const response = await this.request.get(`${serviceURL}${orderPath}/${orderId}`, {
       headers: {
@@ -83,7 +95,7 @@ export class ApiClient {
   }
 
   async deleteOrderById(orderId: number): Promise<void> {
-    console.log('>>jwt: "' + this.jwt + '"')
+    if (!this.jwt) throw new Error('Test cannot continue, user is not logged in...')
     console.log(`Deleting order with ID ${orderId}...`)
     const response = await this.request.delete(`${serviceURL}${orderPath}/${orderId}`, {
       headers: {
