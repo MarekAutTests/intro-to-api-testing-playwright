@@ -20,5 +20,3 @@ test('login and delete order with api client', async ({ request }) => {
   orderId = await apiClient.createOrderAndReturnOrderId()
   await apiClient.deleteOrderById(orderId)
 })
-
-
