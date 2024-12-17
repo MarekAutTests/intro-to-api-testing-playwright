@@ -20,9 +20,7 @@ export class ApiClient {
   public static async getInstance(request: APIRequestContext): Promise<ApiClient> {
     if (!ApiClient.instance) {
       ApiClient.instance = new ApiClient(request)
-      if (this.instance) {
-        await this.instance.requestJwt()
-      }
+      await ApiClient.instance.requestJwt()
     }
     return ApiClient.instance
   }
@@ -32,16 +30,14 @@ export class ApiClient {
     const authResponse = await this.request.post(`${serviceURL}${loginPath}`, {
       data: LoginDto.createLoginWithCorrectData(),
     })
-    // Check response status for negative cases
+
     if (authResponse.status() !== StatusCodes.OK) {
       console.log('Authorization failed')
       throw new Error(`Request failed with status ${authResponse.status()}`)
     }
 
-    // Save the JWT token as a client property
     this.jwt = await authResponse.text()
-    console.log('jwt received:')
-    console.log(this.jwt)
+    console.log('JWT received:', this.jwt)
   }
 
   async createOrderAndReturnOrderId(): Promise<number> {
